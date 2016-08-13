@@ -37,6 +37,10 @@ namespace Spofy
             {
                 Properties.Settings.Default.View = 2;
             }
+            else if (rdb3.IsChecked.Value)
+            {
+                Properties.Settings.Default.View = 3;
+            }
 
             Properties.Settings.Default.Save();
             this.Close();

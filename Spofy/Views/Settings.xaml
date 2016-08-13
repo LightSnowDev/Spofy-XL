@@ -28,6 +28,9 @@
             <RadioButton x:Name="rdb2" GroupName="style" Tag="2">
                 <TextBlock Foreground="{StaticResource ForegroundColor}">Minimal Cover</TextBlock>
             </RadioButton>
+            <RadioButton x:Name="rdb3" GroupName="style" Tag="3">
+                <TextBlock Foreground="{StaticResource ForegroundColor}">Fullscreen Cover</TextBlock>
+            </RadioButton>
         </StackPanel>
         <Button x:Name="btnOK" Content="OK" Width="75" Margin="0,16,0,0" Click="btnOK_Click"/>
 

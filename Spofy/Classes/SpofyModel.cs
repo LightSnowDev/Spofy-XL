@@ -46,7 +46,7 @@ namespace Spofy.Classes
             set
             {
                 //this.image = value;
-                this.Cover = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(value.GetHbitmap(), IntPtr.Zero, System.Windows.Int32Rect.Empty, BitmapSizeOptions.FromWidthAndHeight(200, 200));
+                this.Cover = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(value.GetHbitmap(), IntPtr.Zero, System.Windows.Int32Rect.Empty, BitmapSizeOptions.FromWidthAndHeight(640, 640));
                 //this.NotifyPropertyChanged("Image");
             }
         }

@@ -19,7 +19,13 @@
                     <ColumnDefinition Width="50"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Image Source="{Binding Cover}" Grid.Column="0"></Image>
+                <Image Source="{Binding Cover}"
+                       RenderOptions.BitmapScalingMode="HighQuality"
+                       Grid.Column="0">
+                    <Image.CacheMode>
+                        <BitmapCache/>
+                    </Image.CacheMode>
+                </Image>
                 <StackPanel Orientation="Vertical" Margin="10" Grid.Column="1">
                     <TextBlock Text="{Binding TrackName}" Foreground="{StaticResource ForegroundColor}" FontSize="13" TextOptions.TextRenderingMode="ClearType"/>
                     <TextBlock Name="txtArtistName" Text="{Binding ArtistName}" Foreground="{StaticResource ForegroundColor}" FontSize="13" TextOptions.TextRenderingMode="ClearType"/>

@@ -49,10 +49,6 @@ namespace Spofy
         {
             Title = SpofyManager.appName;
             AllowsTransparency = false;
-            ResizeMode = ResizeMode.NoResize;
-            WindowStartupLocation = WindowStartupLocation.Manual;
-            WindowStyle = WindowStyle.None;
-
             CheckSettings();
 
             //snap to edges
@@ -90,6 +86,9 @@ namespace Spofy
                     break;
                 case 2:
                     view = new MinimalCover();
+                    break;
+                case 3:
+                    view = new FullScreenCover();
                     break;
                 default:
                     view = new LargeCover();
@@ -141,13 +140,13 @@ namespace Spofy
             // http://msdn.microsoft.com/en-us/library/aa969524(VS.85).aspx
             Int32 DWMWA_NCRENDERING_POLICY = 2;
             NativeMethods.DwmSetWindowAttribute(
-                m_hwndSource.Handle,
-                DWMWA_NCRENDERING_POLICY,
+            m_hwndSource.Handle,
+            DWMWA_NCRENDERING_POLICY,
                 ref DWMWA_NCRENDERING_POLICY,
-                4);
+            4);
 
             // http://msdn.microsoft.com/en-us/library/aa969512(VS.85).aspx
-            NativeMethods.ShowShadowUnderWindow(m_hwndSource.Handle);
+            //NativeMethods.ShowShadowUnderWindow(m_hwndSource.Handle);
         }
 
         #endregion
@@ -159,6 +158,11 @@ namespace Spofy
             Settings settingsWindow = new Settings();
             settingsWindow.Show();
             settingsWindow.Closed += settingsWindow_Closed;
+        }
+
+        private void cmiFullscreen_Click(object sender, RoutedEventArgs e)
+        {
+            switchFullscreen();
         }
 
         void settingsWindow_Closed(object sender, EventArgs e)
@@ -278,5 +282,29 @@ namespace Spofy
         }
 
         #endregion
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+                switch (e.Key)
+                {
+                    case Key.F11:
+                    switchFullscreen();
+                    break;
+                }
+        }
+
+        private void switchFullscreen()
+        {
+            if (this.WindowStyle != WindowStyle.None)
+            {
+                this.ResizeMode = ResizeMode.NoResize;
+                this.WindowStyle = WindowStyle.None;
+                this.WindowState = WindowState.Maximized;
+            }
+            else {
+                this.WindowStyle = WindowStyle.SingleBorderWindow;
+                this.ResizeMode = ResizeMode.CanResize;
+            }
+        }
     }
 }
