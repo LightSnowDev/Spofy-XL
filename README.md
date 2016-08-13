@@ -1,5 +1,5 @@
 # Spofy
-Spofy is a WPF-Based Spotify mini player and notifier for Windows.
+Spofy-XL is a WPF-Based Spotify player and notifier for Windows. It supports differnt sizes from mini to fullscreen.
 
 Just download the executable from here: [https://github.com/eltoncezar/Spofy/releases/latest](https://github.com/eltoncezar/Spofy/releases/latest)
 
